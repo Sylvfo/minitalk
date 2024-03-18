@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_sign.c                                      :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 13:58:35 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/18 15:46:04 by sforster         ###   ########.fr       */
+/*   Created: 2023/10/24 14:44:17 by sforster          #+#    #+#             */
+/*   Updated: 2023/11/07 14:48:36 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include "/libft/libft.h"
+// check and manipulate character
+// verifie si (c) est dans ascii
 
-int main(void)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
-	
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }
+
+/*int main(void)
+{
+    int a;
+    a = '1';
+
+    printf("%i\n", ft_isascii(a));
+}*/

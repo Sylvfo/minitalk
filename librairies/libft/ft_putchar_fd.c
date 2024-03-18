@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_sign.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 13:58:35 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/18 15:46:04 by sforster         ###   ########.fr       */
+/*   Created: 2023/11/03 15:53:23 by sforster          #+#    #+#             */
+/*   Updated: 2023/11/07 14:49:10 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include "/libft/libft.h"
+// write to a file descriptor
+// ecrit un caractere dans le (fd) file descriptor
 
-int main(void)
+#include <unistd.h>
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
 {
-	
+	write (fd, &c, 1);
 }

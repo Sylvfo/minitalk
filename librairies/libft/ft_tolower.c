@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_sign.c                                      :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 13:58:35 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/18 15:46:04 by sforster         ###   ########.fr       */
+/*   Created: 2023/10/25 13:29:36 by sforster          #+#    #+#             */
+/*   Updated: 2023/11/07 14:50:37 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include "/libft/libft.h"
+// check and manipulate characteres
+// met une majuscule en minuscule
 
-int main(void)
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-	
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
+	return (c);
 }
+
+/*int	main(void)
+{
+	int	a = '2';
+	int b = 'a';
+	int c = 'T';
+	int d = ')';
+
+	printf("%c\n", ft_tolower(a));
+	printf("%c\n", ft_tolower(b));
+	printf("%c\n", ft_tolower(c));
+	printf("%c\n", ft_tolower(d));
+	return (0);
+}*/

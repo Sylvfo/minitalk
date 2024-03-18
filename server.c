@@ -5,60 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 11:33:59 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/15 17:16:32 by sforster         ###   ########.fr       */
+/*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
+/*   Updated: 2024/03/18 15:45:01 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
 #include <unistd.h>
+#include <signal.h>
+#include <stdio.h>
 
-/*
-from cursus gitbook
-Display its PID
-Create an endless loop so that the server can receive signals at any time
-Receive signals
-Decrypt signals
-For each signal received (SIGUSR1 & SIGUSR2) it should take a certain action
-*/
-
-/*
-1 doit envoyer le pid
-2 doit afficher le message
-*/
-
-/*
-make file
-
-my own printf
-*/
-
-getpid;
-
-	display pid
-
-	signal(SIGUSR1, )
-	pause(); /*until received info from client.*/
-
-
-	recevoir les signaux et les mettres par 8
-	transformer les bits en char
-	stocker les char dans *message.
-	decrypte info
-
-	malloc bit?
-	transformer bit en char. 
-s
-	if bit = 0000 0000 fin du signal. 
-		-> terminer
-
-	
-
-int main(int argc, SIGUSR1, SIGUSR2 )???
+void get_message(int sig)
 {
-	char	*message;
-	int		bytes;
+	static int	i;
+	static int	letter;
+	static char	*message;
 
-	printf("%s", message);
+//pas compris
+	if (sig == SIGUSR1)
+		i = i | 1;
+	letter++;
+	if (letter == 8)
+	{
+		// quand i = 0 ca veut dire i = '\0' de la fin du message)
+		if (i == 0)
+		{
+			printf("%s\n", message);
+		// j imagine pour eviter les leaks
+			message = NULL;
+		}
+		message = join_char(message, i);
+		i = 0;
+		letter = 0;
+	}
+// incrementation
+	i = i << 1;
+}
+
+int main(void)
+{
+// donne le pid
+	printf("Hello my pid is %i \n", getpid());
+	return (0);
+	while(1)
+	{
+		signal(SIGUSR1, get_message);
+		signal(SIGUSR2, get_message);
+		pause();
+	}
 	return (0);
 }

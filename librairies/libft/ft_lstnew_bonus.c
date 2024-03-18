@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_sign.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 13:58:35 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/18 15:46:04 by sforster         ###   ########.fr       */
+/*   Created: 2023/11/27 10:21:13 by sforster          #+#    #+#             */
+/*   Updated: 2023/11/29 17:17:13 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include "/libft/libft.h"
 
-int main(void)
+#include "libft.h"
+
+t_list	*ft_lstnew(void *content)
 {
-	
+	t_list	*result;
+
+	result = malloc(sizeof(t_list));
+	if (!result)
+		return (NULL);
+	result->content = content;
+	result->next = NULL;
+	return (result);
 }

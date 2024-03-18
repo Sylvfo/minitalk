@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_sign.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 13:58:35 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/18 15:46:04 by sforster         ###   ########.fr       */
+/*   Created: 2023/11/27 10:25:23 by sforster          #+#    #+#             */
+/*   Updated: 2023/11/29 11:39:55 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include "/libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	
+	t_list	*current;
+	t_list	*tmp;
+
+	if (!lst || !del)
+		return ;
+	current = *lst;
+	while (current != NULL)
+	{
+		tmp = current;
+		current = current->next;
+		del(tmp->content);
+		free(tmp);
+	}
+	*lst = NULL;
 }
