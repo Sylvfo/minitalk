@@ -1,4 +1,6 @@
-FLAGS			= -Wall -Werror -Wextra
+SRCS			= client.c	server.c
+FLAGS			= -Wall -Werror -Wextra -g
+//NAME??
 CC				= GCC
 RM				= rm -f
 

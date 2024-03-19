@@ -6,7 +6,7 @@
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/18 15:45:01 by sforster         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:50:23 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void get_message(int sig)
 	if (sig == SIGUSR1)
 		i = i | 1;
 	letter++;
+	// letter = 8 ca veut dire qu on a une lettre
 	if (letter == 8)
 	{
 		// quand i = 0 ca veut dire i = '\0' de la fin du message)

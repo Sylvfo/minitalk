@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_pid_sleep.c                                 :+:      :+:    :+:   */
+/*   joinchar.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 13:49:24 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/19 13:50:24 by sforster         ###   ########.fr       */
+/*   Created: 2024/03/19 13:37:32 by sforster          #+#    #+#             */
+/*   Updated: 2024/03/19 13:50:16 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int	main(void)
+int	strlen(char *str)
 {
-	pid_t	pid;
+	int	i;
 
-	pid = getpid();
-	printf("%i", pid);
-	sleep(5);
-	printf("%i", pid);
-	sleep(5);
-	printf("%i", pid);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
-/*
-	while (1)
-	{
-		printf("%i", pid);
-		sleep(10);
-	}*/
+
+char	*joinchar(char *str, char c)
+{
+	char	*tmp;
+
+	if (!str)
+		str = malloc(2 * sizeof(char));
+	tmp = malloc((strlen(str) + 1)) * sizeof(char));
+	
+	
+}
