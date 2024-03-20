@@ -1,19 +1,26 @@
+NAME			= minitalk
 SRCS			= client.c	server.c
 FLAGS			= -Wall -Werror -Wextra -g
-//NAME??
-CC				= GCC
+CC				= gcc
 RM				= rm -f
-
-LIBFT_DIR		= ./librairies/lift
-LIBFT			= ./librairies/libft/libft.a
-PRINTF_DIR		= ./librairies/printf
-PRINTF			= ./librairies/printf/printf.a
-
-$ (NAME):		$ (OBJ) $ (PRINTF) $ (LIBFT)
-
-//voir message Allan
+OBJ				=	$(SRCS:.c=.o)
 
 all: server client
 
-server: server.o
+server: server.o 
 
+client: client.o
+
+server.o: server.c
+	${CC} -c server.c 
+
+client.o: client.c 
+	${CC} -c client.c 
+
+clean:
+			$(RM) $(OBJ)
+
+fclean:		clean
+				$(RM) $(NAME)
+
+.PHONY:		all re clean fclean bin

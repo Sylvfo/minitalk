@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   joinchar.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 13:37:32 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/19 13:50:16 by sforster         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:29:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int	strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -26,10 +26,31 @@ int	strlen(char *str)
 char	*joinchar(char *str, char c)
 {
 	char	*tmp;
+	int		i;
 
 	if (!str)
 		str = malloc(2 * sizeof(char));
-	tmp = malloc((strlen(str) + 1)) * sizeof(char));
-	
-	
+	if (!c)
+		return (str);
+	tmp = malloc((ft_strlen(str) + 1) * sizeof(char));
+	if (!tmp)
+		return (NULL);
+	while (str[i])
+	{
+		tmp[i] = str[i];
+		i++;
+	}
+	tmp[i] = c;
+	i++;
+	tmp[i] = '\0';
+	return (tmp);
+}
+
+int	main(void)
+{
+	char	*st = "adf";
+	char	s = 't';
+
+	printf("%s", joinchar(st, s));
+	return (0);
 }
