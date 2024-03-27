@@ -6,13 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:44:22 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/20 17:56:34 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/27 11:51:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
 #include <signal.h>
+#include "printf/ft_printf.h"
 
 int	ft_atoi(const char *str)
 {
@@ -65,7 +64,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 3 || ft_atoi(argv[1]) < 1)
 	{
-		printf("Enter pid and message please. \n");
+		ft_printf("Enter pid and message please. \n");
 		return (0);
 	}
 	i = 0;

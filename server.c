@@ -6,14 +6,14 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/20 17:56:27 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/27 11:51:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "printf/ft_printf.h"
 
 int	ft_strlen(char *str)
 {
@@ -66,7 +66,7 @@ void	get_message(int sig)
 	{
 		if (letter == 0)
 		{
-			printf("%s\n", message);
+			ft_printf("%s\n", message);
 			message = NULL;
 		}
 		message = joinchar(message, letter);
@@ -78,7 +78,7 @@ void	get_message(int sig)
 
 int	main(void)
 {
-	printf("Hello my pid is %i \n", getpid());
+	ft_printf("Hello my pid is %i \n", getpid());
 	while (1)
 	{
 		signal(SIGUSR1, get_message);
