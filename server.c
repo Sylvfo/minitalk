@@ -6,12 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/27 13:50:09 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/27 14:14:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include "librairies/printf/ft_printf.h"
 
