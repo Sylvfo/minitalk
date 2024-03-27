@@ -6,23 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/27 15:19:17 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/27 16:20:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
-#include <stdlib.h>
 #include "librairies/printf/ft_printf.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "librairies/libft/libft.h"
 
 char	*joinchar(char *str, char c)
 {
@@ -68,7 +58,7 @@ void	get_message(int sig)
 			ft_printf("%s\n", message);
 			message = NULL;
 //			à comprendre.... info si pid
-			kill(info->si_pid, SIGUSR1);
+//			kill(info->si_pid, SIGUSR1);
 		}
 		message = joinchar(message, letter);
 		letter = 0;
