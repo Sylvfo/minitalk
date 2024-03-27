@@ -6,6 +6,10 @@ OBJ				=	$(SRCS:.c=.o)
 
 all: server client
 
+server: server.o 
+
+client: client.o
+
 server.o: server.c
 	${CC} -c server.c 
 

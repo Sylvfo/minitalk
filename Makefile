@@ -1,15 +1,13 @@
-NAME			= minitalk
 SRCS			= client.c	server.c
 FLAGS			= -Wall -Werror -Wextra -g
 CC				= gcc
 RM				= rm -f
 OBJ				=	$(SRCS:.c=.o)
 
+PRINTF			= ft_printf
+LIB				= ./${PRINTF}/libftprintf.a
+
 all: server client
-
-server: server.o 
-
-client: client.o
 
 server.o: server.c
 	${CC} -c server.c 
@@ -21,6 +19,8 @@ clean:
 			$(RM) $(OBJ)
 
 fclean:		clean
-				$(RM) $(NAME)
+				$(RM) server client
+
+re:			fclean	all
 
 .PHONY:		all re clean fclean bin
