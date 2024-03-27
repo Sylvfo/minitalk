@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/20 17:03:00 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/20 17:56:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ char	*joinchar(char *str, char c)
 			return (NULL);
 		str[0] = '\0';
 	}
-//	if (!c)
-//		return (str);
 	i = 0;
 	tmp = malloc((ft_strlen(str) + 2) * sizeof(char));
 	if (!tmp)
