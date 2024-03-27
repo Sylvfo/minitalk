@@ -6,40 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:44:22 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/27 13:49:59 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/27 14:39:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include "librairies/printf/ft_printf.h"
-
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	minus;
-	int	result;
-
-	i = 0;
-	minus = 1;
-	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i + 1] == '-' || str[i + 1] == '+')
-			return (0);
-		else if (str[i] == '-')
-			minus *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = (result * 10) + (str[i] - 48);
-		i++;
-	}
-	result = result * minus;
-	return (result);
-}
+#include "librairies/libft/libft.h"
 
 void	send_message(int pid, char c)
 {
