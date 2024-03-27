@@ -4,7 +4,7 @@ CC				= gcc
 RM				= rm -f
 OBJ				=	$(SRCS:.c=.o)
 
-PRINTF			= printf
+PRINTF			= ./librairies/printf
 LIB				= ./${PRINTF}/libftprintf.a
 
 all: server client

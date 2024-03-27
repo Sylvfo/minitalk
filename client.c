@@ -6,12 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:44:22 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/27 11:51:37 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/27 13:49:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
-#include "printf/ft_printf.h"
+#include "librairies/printf/ft_printf.h"
 
 int	ft_atoi(const char *str)
 {
