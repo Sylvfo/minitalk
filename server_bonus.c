@@ -6,7 +6,7 @@
 /*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/28 11:49:46 by sforster         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:23:35 by sforster         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*joinchar(char *str, char c)
 	return (tmp);
 }
 
-void	get_message(int sig)
+void	get_message(int sig, siginfo_t *info, void *context)
 {
 	static int	letter;
 	static int	nb_bits;
@@ -68,11 +68,16 @@ void	get_message(int sig)
 
 int	main(void)
 {
+	struct sigaction	my_action;
+
 	ft_printf("Hello my pid is %i \n", getpid());
+	my_action.sa_sigaction = get_message;
+	sigemptyset(&my_action.sa_mask);
+	my_action.sa_flags = SA_RESTART;
 	while (1)
 	{
-		signal(SIGUSR1, get_message);
-		signal(SIGUSR2, get_message);
+		sigaction(SIGUSR1, &my_action, NULL);
+		sigaction(SIGUSR2, &my_action, NULL);
 		pause();
 	}
 	return (0);
