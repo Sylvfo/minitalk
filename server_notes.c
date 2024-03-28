@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/28 11:49:46 by sforster         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:17:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
+#include <stdlib.h>
 #include "librairies/printf/ft_printf.h"
 #include "librairies/libft/libft.h"
 
@@ -57,7 +58,6 @@ void	get_message(int sig)
 		{
 			ft_printf("%s\n", message);
 			message = NULL;
-			kill(info->si_pid, SIGUSR1);
 		}
 		message = joinchar(message, letter);
 		letter = 0;

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sforster <sforster@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:41:55 by sforster          #+#    #+#             */
-/*   Updated: 2024/03/28 11:49:46 by sforster         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:13:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <signal.h>
-#include "librairies/printf/ft_printf.h"
-#include "librairies/libft/libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 char	*joinchar(char *str, char c)
 {
@@ -20,14 +31,10 @@ char	*joinchar(char *str, char c)
 	int		i;
 
 	if (!str)
-	{
-		str = malloc(1);
-		if (!str)
-			return (NULL);
-		str[0] = '\0';
-	}
-	i = 0;
-	tmp = malloc((ft_strlen(str) + 2) * sizeof(char));
+		str = malloc(2 * sizeof(char));
+	if (!c)
+		return (str);
+	tmp = malloc((ft_strlen(str) + 1) * sizeof(char));
 	if (!tmp)
 		return (NULL);
 	while (str[i])
@@ -38,38 +45,43 @@ char	*joinchar(char *str, char c)
 	tmp[i] = c;
 	i++;
 	tmp[i] = '\0';
-	free (str);
 	return (tmp);
 }
 
 void	get_message(int sig)
 {
+	static int	i;
 	static int	letter;
-	static int	nb_bits;
 	static char	*message;
 
+//pas compris
 	if (sig == SIGUSR1)
-		letter = letter | 1;
-	nb_bits++;
-	if (nb_bits == 8)
+		i = i | 1;
+	letter++;
+	// letter = 8 ca veut dire qu on a une lettre
+	if (letter == 8)
 	{
-		if (letter == 0)
+		// quand i = 0 ca veut dire i = '\0' de la fin du message)
+		if (i == 0)
 		{
-			ft_printf("%s\n", message);
+			printf("%s\n", message);
+		// j imagine pour eviter les leaks
 			message = NULL;
-			kill(info->si_pid, SIGUSR1);
 		}
-		message = joinchar(message, letter);
+		message = joinchar(message, i);
+		i = 0;
 		letter = 0;
-		nb_bits = 0;
 	}
-	letter = letter << 1;
+// incrementation
+	i = i << 1;
 }
 
-int	main(void)
+int main(void)
 {
-	ft_printf("Hello my pid is %i \n", getpid());
-	while (1)
+// donne le pid
+	printf("Hello my pid is %i \n", getpid());
+	return (0);
+	while(1)
 	{
 		signal(SIGUSR1, get_message);
 		signal(SIGUSR2, get_message);
